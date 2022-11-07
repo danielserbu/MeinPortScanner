@@ -71,6 +71,7 @@ if "-" in addresses:
             addresses_to_scan.append(address)
 
 if ports:
+    # ToDo: Add switch case instead :D
     if "*" in ports:
         ports_to_scan = ALL_PORTS
     if "," in ports:
@@ -81,6 +82,7 @@ if ports:
         last_port = int(match.group().split('-')[1])
 
         # Validate received ports.
+        # ToDo: This kind of validation should be done for "," case too
         if (first_port or last_port) > MAX_PORT:
             print("Port cannot be higher than " + str(MAX_PORT))
             print("Exiting..")
